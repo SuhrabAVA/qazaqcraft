@@ -33,7 +33,8 @@ SECRET_KEY = 'django-insecure-^w!n&wz5i18_uwctuda^a9b27g10ue)2!*te8qv(yqpim*g+f1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['qazaqcraft.kz', 'your-app-name.onrender.com']
+ALLOWED_HOSTS = ['*']
+
 
 import dj_database_url
 
