@@ -29,14 +29,16 @@
                     <p>{{ category.description }}</p>
                 </div>
                 <span class="category-arrow">
-          <img src="{% static 'img/arrow.svg' %}" alt="category arrow">
-        </span>
+                    <img src="{% static 'img/arrow.svg' %}" alt="category arrow">
+                </span>
             </div>
         </a>
+        {% empty %}
+        <p>Категории не найдены.</p>
         {% endfor %}
     </section>
 
-    </section>
+
     </main>
 
     {% include 'footer.html' %}

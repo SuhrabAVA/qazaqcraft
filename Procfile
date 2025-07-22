@@ -1,0 +1,1 @@
+web: gunicorn qazaqcraft_project.wsgi:application
