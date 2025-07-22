@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Изготавливаем кованые изделия и выполняем сварочные работы под ключ: ворота, лестницы, заборы, навесы. Более 20 лет опыта. Качество. Гарантия." />
+    <title>Сварочные работы и художественная ковка в Алматы | Профессионально и с гарантией</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    <main class="main">
+        <!-- Hero секция -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero--text">
+                    <h1 class="hero--title">СВАРОЧНЫЕ&nbsp;РАБОТЫ В АЛМАТЫ</h1>
+                    <p class="hero--desc">
+                        Выполняем сварочные работы и кованые изделия любой сложности: ворота, заборы, лестницы, перила, навесы, ограждения и декоративные элементы. Работаем с металлом под ключ — от замера до установки. Собственное производство. Опыт мастеров — более 20 лет.
+                        Качественно, в срок, с гарантией.
+                    </p>
+                    <a href="{% url 'catalog' %}" class="btn btn-hero">ПРОСМОТРЕТЬ&nbsp;КАТАЛОГ</a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="features-section">
+            <div class="container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{% static 'icons/delivery.svg' %}" alt="Доставка и монтаж" />
+                    </div>
+                    <div class="feature-text">
+                        <h3>Доставка и монтаж</h3>
+                        <p>Самостоятельно привезем и установим</p>
+                    </div>
+
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{% static 'icons/size.svg' %}" alt="Размеры под заказ" />
+                    </div>
+                    <div class="feature-text">
+                        <h3>Размеры под заказ</h3>
+                        <p>Работаем по вашим чертежам</p>
+                    </div>
+
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{% static 'icons/exp.svg' %}" alt="Опыт более 20 лет" />
+                    </div>
+                    <div class="feature-text">
+                        <h3>Опыт более 20 лет</h3>
+                        <p>Знаем всё о сварке и металле</p>
+                    </div>
+
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="{% static 'icons/time.svg' %}" alt="Соблюдаем сроки" />
+                    </div>
+                    <div class="feature-text">
+                        <h3>Выполняем в сроки</h3>
+                        <p>Быстро. Точно. Без задержек</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Информация об компании -->
+        <section class="comp-info" id="comp-info">
+            <div class="container">
+                <img src="{% static 'img/info.png' %}" alt="Преимущества компании" class="info-img" />
+                <div class="info-text">
+                    <h2 class="info-title">О КОМПАНИИ</h2>
+                    <p class="info-desc">
+                        QAZAQCRAFT — это синтез казахских традиций, современного дизайна и многолетнего опыта в сфере металлического искусства. Уже более 20 лет мы создаём не просто изделия — мы воплощаем в металл характер, стиль и индивидуальность наших заказчиков. Каждая работа
+                        от QAZAQCRAFT — это ручная точность, надёжность и эстетика, прошедшая проверку временем. Мы гордимся доверием наших клиентов и репутацией, которую заслужили под именем “Ренессанс” — именно с этого названия начиналась наша история.
+                    </p>
+                    <a href="{% url 'request_form' %}" class="btn btn-tran">РАССЧИТАТЬ</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-swiper">
+            <div class="container">
+                <h2 class="carousel-title">Наши работы</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {% for work in works %}
+                        <div class="swiper-slide project-card">
+                            <div class="project-image-wrapper">
+                                <img src="{{ work.image.url }}" alt="{{ work.name }}">
+                            </div>
+                            <div class="project-info">
+                                <div class="info-row">
+                                    <h3>{{ work.name }}</h3>
+
+                                </div>
+                                <a href="{% url 'request_form' %}" class="btn btn-orange">ПОДРОБНЕЕ</a>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                slidesPerView: 3,
+                spaceBetween: 20,
+            });
+        </script>
+
+
+        <!-- Пустая секция для якоря Контакты -->
+        <section id="contacts"></section>
+    </main>
+
+    <!-- Подвал -->
+    {% include 'footer.html' %}
+
+
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>

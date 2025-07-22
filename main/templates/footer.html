@@ -1,0 +1,33 @@
+{% load static %}
+<!-- Подвал -->
+<footer class="footer">
+    <div class="container footer-content">
+        <div class="footer-map">
+            {{ contact.map_embed|safe }}
+        </div>
+        <div class="footer-contacts">
+            <h3>КОНТАКТЫ</h3>
+
+            {# Email-ы #} {% for email in contact.emails.all %}
+            <p>{{ email.email }}</p>
+            {% endfor %} {# Телефоны #} {% for phone in contact.phones.all %}
+            <p>{{ phone.number }}</p>
+            {% endfor %} {# Адрес #} {% if contact.address %}
+            <p>{{ contact.address }}</p>
+            {% endif %}
+
+            <div class="footer-socials">
+                {% if contact.tiktok %}
+                <a href="{{ contact.tiktok }}"><img src="{% static 'img/tiktok.svg' %}" alt="TikTok" /></a>
+                {% endif %} {% if contact.telegram %}
+                <a href="{{ contact.telegram }}"><img src="{% static 'img/telegram.svg' %}" alt="Telegram" /></a>
+                {% endif %} {% if contact.whatsapp %}
+                <a href="{{ contact.whatsapp }}"><img src="{% static 'img/whatsapp.svg' %}" alt="WhatsApp" /></a>
+                {% endif %} {% if contact.instagram %}
+                <a href="{{ contact.instagram }}"><img src="{% static 'img/instagram.svg' %}" alt="Instagram" /></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <p class="footer-copy">© Все права защищены “QAZAQCRAFT” 2025</p>
+</footer>
