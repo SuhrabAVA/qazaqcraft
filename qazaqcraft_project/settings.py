@@ -35,20 +35,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+import dj_database_url
+
+DATABASES = {}
+
 if os.getenv('RENDER'):
-    import dj_database_url
-    
+    DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+else:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myprojectdb',
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-    DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
 
 
 
