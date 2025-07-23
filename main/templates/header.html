@@ -3,35 +3,33 @@
         <div class="header-left">
             <span class="header-logo">QAZAQCRAFT</span>
             <a href="tel:+77750800808" class="mobile-call">+77750800808</a>
-            <button id="menuToggle" class="menu-toggle">☰</button>
-            <nav id="headerNav" class="header-nav">
-                <ul class="header-list">
-                    <li><a href="{% url 'index' %}">Главная</a></li>
-
-                    <li class="has-dropdown">
-                        <a href="{% url 'catalog' %}">Каталог</a>
-                        <ul class="dropdown">
-                            {% for category in categories %}
-                            <li>
-                                <a href="{% url 'exact_catalog' category.slug %}">{{ category.name }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-
-                    <li><a href="{% url 'index' %}#comp-info">О нас</a></li>
-                    <li><a href="{% url 'index' %}#contacts">Контакты</a></li>
-
-
-
-                </ul>
-            </nav>
         </div>
+
+        <button id="menuToggle" class="menu-toggle">☰</button>
+
+        <nav id="headerNav" class="header-nav">
+            <ul class="header-list">
+                <li><a href="{% url 'index' %}">Главная</a></li>
+
+                <li class="has-dropdown">
+                    <a href="{% url 'catalog' %}">Каталог</a>
+                    <ul class="dropdown">
+                        {% for category in categories %}
+                        <li>
+                            <a href="{% url 'exact_catalog' category.slug %}">{{ category.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li><a href="{% url 'index' %}#comp-info">О нас</a></li>
+                <li><a href="{% url 'index' %}#contacts">Контакты</a></li>
+            </ul>
+        </nav>
 
         <div class="header-right">
             <a href="tel:+77750800808" class="phone">+7(775)080-08-08</a>
             <a href="{% url 'request_form' %}" class="btn btn-order">РАССЧИТАТЬ</a>
-
         </div>
     </div>
 </header>
