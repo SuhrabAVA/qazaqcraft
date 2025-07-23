@@ -1,30 +1,3 @@
-const swiper = new Swiper('.mySwiper', {
-    // общее
-    loop: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    // ключевые точки
-    breakpoints: {
-        // до 768px — 1 слайд
-        0: {
-            slidesPerView: 1,
-            spaceBetween: 16,
-        },
-        // от 769px до 1024px — 2 слайда
-        769: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        // от 1025px — 3 слайда
-        1025: {
-            slidesPerView: 3,
-            spaceBetween: 24,
-        },
-    }
-});
-
 const menuToggle = document.getElementById('menuToggle');
 const headerNav = document.getElementById('headerNav');
 menuToggle.onclick = function() {
@@ -77,12 +50,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
-            slidesPerView: 3,
-            spaceBetween: 30,
             breakpoints: {
-                0: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                },
+                769: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                },
             }
         });
     }
