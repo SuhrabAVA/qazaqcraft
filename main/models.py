@@ -1,9 +1,9 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 class CatalogCategory(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='catalog_categories/')
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.name
@@ -16,7 +16,7 @@ class About(models.Model):
     
 class Work(models.Model):
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='works/')
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.name
@@ -45,7 +45,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to='categories/')
+    image = CloudinaryField('image')
     description = models.TextField(blank=True)
 
     def __str__(self):
@@ -56,7 +56,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='products/')
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.name
@@ -66,7 +66,7 @@ class CatalogItem(models.Model):
     name = models.CharField(max_length=100)
     price = models.CharField(max_length=50, blank=True) 
     size = models.CharField(max_length=50, blank=True) 
-    image = models.ImageField(upload_to='catalog/', blank=True, null=True)  
+    image = CloudinaryField('image', blank=True, null=True)   
 
     def __str__(self):
         return self.name
