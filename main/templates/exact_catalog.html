@@ -27,7 +27,7 @@
             <div class="category-hero-content">
                 <h1>{{ category.name|upper }}</h1>
                 <p>{{ category.description }}</p>
-                <a href="#products" class="btn btn-tran">ЗАКАЗАТЬ</a>
+                <a href="{% url 'request_form' %}" class="btn btn-order">Заказать</a>
             </div>
             <span class="hero-arrow">
         <img src="{% static 'img/arrow-down.svg' %}" alt="Стрелка вниз">

@@ -771,11 +771,21 @@ h6 {
 .product-card img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     /* сохраняет пропорции и заполняет блок */
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     display: block;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    height: 250px;
+    /* или сколько нужно */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
 }
 
 .product-info {
