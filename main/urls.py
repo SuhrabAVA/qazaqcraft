@@ -13,8 +13,16 @@ urlpatterns = [
         content_type='text/html'
       )
     ),
+    path(
+        'googlebe973d4d80c97467.html',
+        TemplateView.as_view(
+            template_name='googlebe973d4d80c97467.html',
+            content_type='text/html'
+        ),
+        name='google-site-verification'
+    ),
 ]
 
-urlpatterns += [
+
     
-]
+
